@@ -1,0 +1,11 @@
+# Visual Studio / SSDT : fichiers générés ou personnels
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.ispac
+*.asdatabase
+
+.DS_Store
+Thumbs.db

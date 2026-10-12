@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-29VQCT4_SQLDEVELOPER.Medi_DB"
+  DTS:DTSID="{43F063BC-9AB0-48B5-B40F-A86ADF913C67}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-29VQCT4\SQLDEVELOPER;Initial Catalog=Medi_DB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-ETL_Medi_Effets-{43F063BC-9AB0-48B5-B40F-A86ADF913C67}DESKTOP-29VQCT4\SQLDEVELOPER.Medi_DB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

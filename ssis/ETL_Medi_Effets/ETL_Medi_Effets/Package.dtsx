@@ -1,0 +1,2367 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/15/2025 9:26:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-29VQCT4"
+  DTS:CreatorName="DESKTOP-29VQCT4\DELL"
+  DTS:DTSID="{CD2D4E02-CEF4-4308-92E6-DF0B7F53D1FA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{F2EBE378-5D58-44E5-9632-E2B379F14F5A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Load_Dim_Medicaments"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{846100B7-C63A-4173-BFED-3527858E7098}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Load_Dim_Medicaments"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Dim_Medicaments]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{107F5368-BC09-43B1-81C4-E8075A0532BA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4_SQLDEVELOPER.Medi_EffetsDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[ID_Medicament]"
+                      cachedDataType="i4"
+                      cachedName="ID_Medicament"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_Medicament]"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Medicament]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Nom_Medicament]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nom_Medicament"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_Medicament]"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Medicament]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Classe_Therapeutique]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Classe_Therapeutique"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Classe_Therapeutique]"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Classe_Therapeutique]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Dosage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Dosage"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Dosage]"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Dosage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_Medicament]"
+                      dataType="i4"
+                      name="ID_Medicament" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_Medicament]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nom_Medicament" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Classe_Therapeutique]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Classe_Therapeutique" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Dosage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dosage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Medicaments]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{43F063BC-9AB0-48B5-B40F-A86ADF913C67}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4_SQLDEVELOPER.Medi_DB]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Medicament]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Medicament]"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Medicament]"
+                      name="ID_Medicament"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Medicament]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nom_Medicament]"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nom_Medicament]"
+                      name="Nom_Medicament"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Classe_Therapeutique]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Classe_Therapeutique]"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Classe_Therapeutique]"
+                      name="Classe_Therapeutique"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Dosage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Dosage]"
+                      length="50"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Dosage]"
+                      name="Dosage"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Medicament]"
+                      dataType="i4"
+                      name="ID_Medicament" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nom_Medicament]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nom_Medicament" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Classe_Therapeutique]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Classe_Therapeutique" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Dosage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dosage" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Medicament]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Medicament]"
+                      name="ID_Medicament" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nom_Medicament]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nom_Medicament]"
+                      name="Nom_Medicament" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Classe_Therapeutique]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Classe_Therapeutique]"
+                      name="Classe_Therapeutique" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Dosage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Dosage]"
+                      name="Dosage" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Load_Dim_Medicaments.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT_Load_Dim_Medicaments\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT_Load_Dim_Medicaments\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Load_Dim_Patients"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{97D30ACA-1DCE-40EF-83DA-A7BB84064000}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Load_Dim_Patients"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Load_Dim_Patients\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Patients\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Conversion de données.Inputs[Entrée de conversion de données].Columns[Categorie_Age]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Categorie_Age"
+                      lineageId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée].Columns[Categorie_Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT_Load_Dim_Patients\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie de conversion de données].Columns[Categorie_Age]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie de conversion de données].Columns[Categorie_Age]"
+                      name="Categorie_Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée].Columns[Categorie_Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT_Load_Dim_Patients\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_CategorieAge"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Inputs[Entrée de colonne dérivée].Columns[Age]"
+                      cachedDataType="i4"
+                      cachedName="Age"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée].Columns[Categorie_Age]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée].Columns[Categorie_Age]"
+                      name="Categorie_Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(#{Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]} &lt; 25) ? (DT_STR,50,1252)"Jeune" : (#{Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]} &gt;= 25 &amp;&amp; #{Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]} &lt;= 65) ? (DT_STR,50,1252)"Adulte" : (DT_STR,50,1252)"Senior"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Age &lt; 25) ? (DT_STR,50,1252)"Jeune" : (Age &gt;= 25 &amp;&amp; Age &lt;= 65) ? (DT_STR,50,1252)"Adulte" : (DT_STR,50,1252)"Senior"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Patients\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Dim_Patients]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{1EA38B66-D25C-495F-B4B2-C413A4B21B0A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4\SQLDEVELOPER.Medi_EffetsDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[ID_Patient]"
+                      cachedDataType="i4"
+                      cachedName="ID_Patient"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_Patient]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Patient]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Sexe]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sexe"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Sexe]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Sexe]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Age]"
+                      cachedDataType="i4"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Antecedents]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Antecedents"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Antecedents]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Antecedents]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Categorie_Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Categorie_Age"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Categorie_Age]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie de conversion de données].Columns[Categorie_Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_Patient]"
+                      dataType="i4"
+                      name="ID_Patient" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Sexe" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Antecedents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Antecedents" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Categorie_Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Categorie_Age" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Patients\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Patients]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{43F063BC-9AB0-48B5-B40F-A86ADF913C67}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4_SQLDEVELOPER.Medi_DB]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Patient]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Patient]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Patient]"
+                      name="ID_Patient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Sexe]"
+                      length="1"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Sexe]"
+                      name="Sexe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Region]"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Antecedents]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Antecedents]"
+                      length="255"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Antecedents]"
+                      name="Antecedents"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Patient]"
+                      dataType="i4"
+                      name="ID_Patient" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Sexe" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Antecedents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Antecedents" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Patient]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Patient]"
+                      name="ID_Patient" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Sexe]"
+                      name="Sexe" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Antecedents]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Antecedents]"
+                      name="Antecedents" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Load_Dim_Patients.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT_Load_Dim_Patients\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT_Load_Dim_Patients.Paths[Sortie de conversion de données]"
+              endId="Package\DFT_Load_Dim_Patients\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT_Load_Dim_Patients\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT_Load_Dim_Patients.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT_Load_Dim_Patients\DC_CategorieAge.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT_Load_Dim_Patients\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Load_Dim_Time"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{4B501D58-F02B-4C7E-B8FA-2B52DECF3D6D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Load_Dim_Time"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Load_Dim_Time\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Date_Rapport]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Date_Rapport"
+                      lineageId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT_Load_Dim_Time\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Annee]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Annee]"
+                      name="Annee"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[YEAR]((DT_DATE)#{Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR((DT_DATE)Date_Rapport)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Mois]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Mois]"
+                      name="Mois"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[MONTH]((DT_DATE)#{Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH((DT_DATE)Date_Rapport)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Jour]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Jour]"
+                      name="Jour"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_DBDATE)((DT_DATE)#{Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)((DT_DATE)Date_Rapport)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT_Load_Dim_Time\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Time\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Dim_Temps]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{1EA38B66-D25C-495F-B4B2-C413A4B21B0A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4\SQLDEVELOPER.Medi_EffetsDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Annee]"
+                      cachedDataType="i4"
+                      cachedName="Annee"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Annee]"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Annee]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Mois]"
+                      cachedDataType="i4"
+                      cachedName="Mois"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Mois]"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Mois]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Jour]"
+                      cachedDataType="dbDate"
+                      cachedName="Jour"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Jour]"
+                      lineageId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Jour]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_Temps]"
+                      dataType="i4"
+                      name="ID_Temps" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Annee]"
+                      dataType="i4"
+                      name="Annee" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Mois]"
+                      dataType="i4"
+                      name="Mois" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Jour]"
+                      dataType="wstr"
+                      length="10"
+                      name="Jour" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_Dim_Time\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Effets_Indesirables]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT Date_Rapport
+FROM Effets_Indesirables</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Dim_Time\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{43F063BC-9AB0-48B5-B40F-A86ADF913C67}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4_SQLDEVELOPER.Medi_DB]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date_Rapport]"
+                      length="10"
+                      lineageId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]"
+                      name="Date_Rapport"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date_Rapport]"
+                      dataType="wstr"
+                      length="10"
+                      name="Date_Rapport" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_Rapport]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_Rapport]"
+                      name="Date_Rapport" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Load_Dim_Time.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT_Load_Dim_Time\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT_Load_Dim_Time\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT_Load_Dim_Time.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT_Load_Dim_Time\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT_Load_Dim_Time\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_Faits_Effets"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{59AAEC66-2B29-4ADF-879D-E0AEA85895AF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_Faits_Effets"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_Faits_Effets\Agrégation"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Agrégation;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Agrège des données avec des fonctions telles que Moyenne, Somme, Nombre, Max.et Min. Par exemple, regroupez des données pour calculer la somme des ventes par produit ou la moyenne des visites par jour."
+              name="Agrégation"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.UInt32"
+                  description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                  name="Keys" />
+                <property
+                  dataType="System.UInt32"
+                  description="Spécifie le nombre approximatif de valeurs distinctes totalisé distinctement par l'agrégation dans une colonne. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur CountDistinctScale n'est utilisée."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de valeurs distinctes totalisées distinctement par l'agrégation dans une colonne. Si une valeur CountDistinctScale est spécifiée, la valeur dans CountDistinctKeys est prioritaire."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage possible d'extension de la mémoire pendant l'agrégation. Les valeurs valides vont de 1 à 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Faits_Effets\Agrégation.Inputs[Entrée d'agrégation 1]"
+                  name="Entrée d'agrégation 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Faits_Effets\Agrégation.Outputs[Sortie d'agrégation 1]"
+                  name="Sortie d'agrégation 1">
+                  <properties>
+                    <property
+                      dataType="System.UInt32"
+                      description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                      name="Keys" />
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Faits_Effets\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Faits_Effets\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Faits_Effets\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Gravite]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gravite"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gravite]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DF_Faits_Effets\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Gravite_Num]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Gravite_Num]"
+                      name="Gravite_Num"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gravite]} == "Léger" ? 1 : #{Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gravite]} == "Modéré" ? 2 : 3</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Gravite == "Léger" ? 1 : Gravite == "Modéré" ? 2 : 3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DF_Faits_Effets\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Faits_Effets\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Faits_Effets\Destination OLE DB.Connections[OleDbConnection]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Faits_Effets\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Faits_Effets\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DF_Faits_Effets\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Faits_Effets\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml"></property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Faits_Effets\Recherche.Connections[OleDbConnection]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Faits_Effets\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DF_Faits_Effets\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DF_Faits_Effets\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DF_Faits_Effets\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Faits_Effets\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+ID_Patient,
+ID_Medicament,
+Date_Rapport,
+Gravite
+FROM Effets_Indesirables</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Faits_Effets\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{43F063BC-9AB0-48B5-B40F-A86ADF913C67}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-29VQCT4_SQLDEVELOPER.Medi_DB]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Patient]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Patient]"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Patient]"
+                      name="ID_Patient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Medicament]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Medicament]"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ID_Medicament]"
+                      name="ID_Medicament"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date_Rapport]"
+                      length="10"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date_Rapport]"
+                      name="Date_Rapport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gravite]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Gravite]"
+                      length="50"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gravite]"
+                      name="Gravite"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Patient]"
+                      dataType="i4"
+                      name="ID_Patient" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ID_Medicament]"
+                      dataType="i4"
+                      name="ID_Medicament" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date_Rapport]"
+                      dataType="wstr"
+                      length="10"
+                      name="Date_Rapport" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Gravite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gravite" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Patient]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Patient]"
+                      name="ID_Patient" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Medicament]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_Medicament]"
+                      name="ID_Medicament" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_Rapport]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_Rapport]"
+                      name="Date_Rapport" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Gravite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Gravite]"
+                      name="Gravite" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_Faits_Effets.Paths[Sortie de colonne dérivée]"
+              endId="Package\DF_Faits_Effets\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DF_Faits_Effets\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DF_Faits_Effets.Paths[Sortie de source OLE DB]"
+              endId="Package\DF_Faits_Effets\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DF_Faits_Effets\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Medicaments"
+          TopLeft="23.7499989382923,12.9999993801117" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Patients"
+          TopLeft="319.999985694886,11.049999473095" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Time"
+          TopLeft="110.624995054677,99.4499952578546" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\DF_Faits_Effets"
+          TopLeft="414.374981475995,133.249993646145" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Load_Dim_Medicaments">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Medicaments\Source OLE DB"
+          TopLeft="99.9999955296518,33.1499984192849" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Medicaments\Destination OLE DB"
+          TopLeft="452.499979771674,44.1999978923798" />
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Medicaments.Paths[Sortie de source OLE DB]"
+          TopLeft="250.666662196318,54.4833317526182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="201.833317575356,11.049999473095"
+              Start="0,0"
+              End="194.333317575356,11.049999473095">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="96.916658787678,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.916658787678,0"
+                    Point2="100.916658787678,0"
+                    Point3="100.916658787678,4" />
+                  <mssgle:LineSegment
+                    End="100.916658787678,7.04999947309496" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.916658787678,7.04999947309496"
+                    Point2="100.916658787678,11.049999473095"
+                    Point3="104.916658787678,11.049999473095" />
+                  <mssgle:LineSegment
+                    End="194.333317575356,11.049999473095" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Medicaments\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Medicaments\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_Load_Dim_Patients">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Patients\Source OLE DB"
+          TopLeft="120.999996393919,90.9999972879887" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Patients\DC_CategorieAge"
+          TopLeft="445.999986708165,89.9999973177911" />
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Patients.Paths[Sortie de source OLE DB]"
+          TopLeft="271.666663060586,111.833330636223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.333323647579,0"
+              Start="0,0"
+              End="166.833323647579,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="166.833323647579,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Patients\Conversion de données"
+          TopLeft="575.999982833863,174.666661540667" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Patients\Destination OLE DB"
+          TopLeft="872.999973982573,73.6666653851668" />
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Patients.Paths[Sortie de colonne dérivée]"
+          TopLeft="526.666653374831,132.666663984458">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.999996125698,41.9999975562096"
+              Start="0,0"
+              End="143.999996125698,34.4999975562096">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9999987781048" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.9999987781048"
+                    Point2="0,20.9999987781048"
+                    Point3="4,20.9999987781048" />
+                  <mssgle:LineSegment
+                    End="139.999996125698,20.9999987781048" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.999996125698,20.9999987781048"
+                    Point2="143.999996125698,20.9999987781048"
+                    Point3="143.999996125698,24.9999987781048" />
+                  <mssgle:LineSegment
+                    End="143.999996125698,34.4999975562096" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Patients.Paths[Sortie de conversion de données]"
+          TopLeft="700.888871722752,174.666661540667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="258.111102259822,-58.3333294888338"
+              Start="0,0"
+              End="258.111102259822,-50.8333294888338">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-19.6266278655891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-19.6266278655891"
+                    Point2="0,-23.6266278655891"
+                    Point3="4,-23.6266278655891" />
+                  <mssgle:LineSegment
+                    End="254.111102259822,-23.6266278655891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254.111102259822,-23.6266278655891"
+                    Point2="258.111102259822,-23.6266278655891"
+                    Point3="258.111102259822,-27.6266278655891" />
+                  <mssgle:LineSegment
+                    End="258.111102259822,-50.8333294888338" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Patients\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Patients\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_Load_Dim_Time">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Time\Source OLE DB"
+          TopLeft="87.9999973773957,62.9999981224537" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Time\Colonne dérivée"
+          TopLeft="415.999987602234,56.9999983012677" />
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Time.Paths[Sortie de source OLE DB]"
+          TopLeft="238.666664044062,81.333331545194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.333323558172,0"
+              Start="0,0"
+              End="169.833323558172,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="169.833323558172,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT_Load_Dim_Time\Destination OLE DB"
+          TopLeft="647.999980688096,115.999996542931" />
+        <EdgeLayout
+          Id="Package\DFT_Load_Dim_Time.Paths[Sortie de colonne dérivée]"
+          TopLeft="570.666654268901,78.333331634601">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.3333264191947,58.999998241663"
+              Start="0,0"
+              End="69.8333264191947,58.999998241663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.6666632095973,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666632095973,0"
+                    Point2="38.6666632095973,0"
+                    Point3="38.6666632095973,4" />
+                  <mssgle:LineSegment
+                    End="38.6666632095973,54.999998241663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.6666632095973,54.999998241663"
+                    Point2="38.6666632095973,58.999998241663"
+                    Point3="42.6666632095973,58.999998241663" />
+                  <mssgle:LineSegment
+                    End="69.8333264191947,58.999998241663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Time\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Dim_Time\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF_Faits_Effets">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DF_Faits_Effets\Source OLE DB"
+          TopLeft="26.9999991953373,70.9999978840352" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DF_Faits_Effets\Destination OLE DB"
+          TopLeft="823.999975442887,96.9999971091748" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DF_Faits_Effets\Colonne dérivée"
+          TopLeft="384.999988526106,55.99999833107" />
+        <EdgeLayout
+          Id="Package\DF_Faits_Effets.Paths[Sortie de source OLE DB]"
+          TopLeft="177.666665862004,92.3333312173685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="207.333322664102,-14.9999995529652"
+              Start="0,0"
+              End="199.833322664102,-14.9999995529652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="99.6666613320511,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.6666613320511,0"
+                    Point2="103.666661332051,0"
+                    Point3="103.666661332051,-4" />
+                  <mssgle:LineSegment
+                    End="103.666661332051,-10.9999995529652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103.666661332051,-10.9999995529652"
+                    Point2="103.666661332051,-14.9999995529652"
+                    Point3="107.666661332051,-14.9999995529652" />
+                  <mssgle:LineSegment
+                    End="199.833322664102,-14.9999995529652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\DF_Faits_Effets\Agrégation"
+          TopLeft="641.99998086691,162.999995142222" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\DF_Faits_Effets\Recherche"
+          TopLeft="430.999987155199,142.666663507621" />
+        <EdgeLayout
+          Id="Package\DF_Faits_Effets.Paths[Sortie de colonne dérivée]"
+          TopLeft="462.333321859439,98.6666649977367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.3333319624266,43.9999985098839"
+              Start="0,0"
+              End="33.3333319624266,36.4999985098839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.999999254942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.999999254942"
+                    Point2="0,21.999999254942"
+                    Point3="4,21.999999254942" />
+                  <mssgle:LineSegment
+                    End="29.3333319624266,21.999999254942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.3333319624266,21.999999254942"
+                    Point2="33.3333319624266,21.999999254942"
+                    Point3="33.3333319624266,25.999999254942" />
+                  <mssgle:LineSegment
+                    End="33.3333319624266,36.4999985098839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Faits_Effets\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
